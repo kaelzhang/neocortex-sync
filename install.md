@@ -17,3 +17,7 @@ add a 'error: forbidden' document to /registry
 editing `/usr/local/etc/couchdb/local.ini` and adding `secure_rewrites = false` on line 11 in the `httpd` section.
 
 	Error: insecure_rewrite_rule too many ../.. segments
+
+vhosts? -> 
+
+	vim /usr/local/etc/couchdb/local.ini
