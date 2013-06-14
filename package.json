@@ -2,7 +2,7 @@
   "name": "neocortex",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/neocortex",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +14,10 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/kaelzhang/neocortex/issues"
+  },
+  "dependencies": {
+    "mysql": "~2.0.0-alpha8",
+    "request": "~2.21.0",
+    "async": "~0.2.9"
   }
 }
