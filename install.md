@@ -2,9 +2,10 @@
 
 > Really can't stand @isaacs any more.
 
-1. Even never add `'node_modules'` into .gitignore file
+1. Even never add `'node_modules'` into '.gitignore' file
 2. Untested APIs
 3. Singletons everywhere
+4. Cycling dependencies
 
 ### Notes about install npmjs.org
 
