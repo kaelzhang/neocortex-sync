@@ -1,8 +1,11 @@
 {
   "name": "neocortex",
   "version": "0.0.0",
-  "description": "",
+  "description": "A provider for dependency analytics and combo strategy",
   "main": "lib/neocortex",
+  "bin": {
+    "neocortex": "bin/neocortex-cli"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
