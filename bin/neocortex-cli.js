@@ -1,6 +1,6 @@
 'use strict';
 
-var commander = require('commander');
+require('../lib/commander').cli();
 
 
 
