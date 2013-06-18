@@ -4,7 +4,7 @@
   "description": "A provider for dependency analytics and combo strategy",
   "main": "lib/neocortex",
   "bin": {
-    "neocortex": "bin/neocortex-cli"
+    "neocortex": "bin/neocortex-cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,6 +21,8 @@
   "dependencies": {
     "mysql": "~2.0.0-alpha8",
     "request": "~2.21.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "typo": "~0.1.10",
+    "fs-sync": "~0.1.6"
   }
 }
