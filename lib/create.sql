@@ -4,7 +4,6 @@ CREATE TABLE CM_cortexDependencies
 Package varchar(50) not null,
 Version varchar(20) not null,
 Dependencies text,
-IsPending tinyint not null,
 primary key (Package,Version)
 );
 
