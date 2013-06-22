@@ -13,9 +13,9 @@ primary key (Package,Version)
 CREATE TABLE CM_cortexPendingDependencies
 (
 Id int NOT NULL AUTO_INCREMENT,
-Package varchar(50) not null,
+Package varchar(50) not null, -- 
 Version varchar(20) not null,
-PendingPackage varchar(50) not null,
-PendingVersion varchar(20) not null,
+PackageAffected varchar(50) not null,
+VersionAffected varchar(20) not null,
 primary key (Id)
 );
