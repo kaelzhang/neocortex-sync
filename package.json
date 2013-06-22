@@ -1,6 +1,6 @@
 {
   "name": "neocortex",
-  "version": "0.0.0",
+  "version": "0.1.2",
   "description": "A provider for dependency analytics and combo strategy",
   "main": "lib/neocortex",
   "bin": {
@@ -24,6 +24,7 @@
     "async": "~0.2.9",
     "typo": "~0.1.10",
     "fs-sync": "~0.1.6",
-    "semver": "~1.1.4"
+    "semver": "~1.1.4",
+    "comfort": "~0.1.3"
   }
 }
