@@ -50,17 +50,6 @@ type: `Array.<url>`
 
 用于做 cdn 散列的候选域名组
 
-#### url_pattern
-type: `String`
-
-用于生成模块 idenfitier 生成资源的 url，比如
-`'{domains}/mod/{module}/{version}/index.js'`
-
-#### combo_url_pattern
-type: `String`
-
-用于将多个模块生成成 combo 文件的 pattern
-
 #### f2e_framework_code
 type: `String`
 
@@ -68,57 +57,20 @@ type: `String`
 
 ### 程序逻辑
 
+#### 1. 依赖分析
+这里说明如何获取依赖，并赋值给 `modules`
+
 #### 1. 与 neocortex 服务通信
 
 `<@facade />` 每次运行的时候，都会将 `mod` 加入到 `modList` 中
 
-在程序向客户端传输响应之前，业务 web 会向 neocortex 服务器请求，发送如下信息：
-	
-	- 当前页面的 uniq 标识
-	- modList 的内容，假若 modlist 包含如下内容 `['a@0.0.1', 'b@0.0.2']`
+#### 2. 获取，分析依赖及生成打包配置
 
-假若，有如下的依赖关系：
+由于这部分稍微复杂，请见文档 [dependency-analytics.md](dependency-analytics.md)
 
-	"a@0.0.1" -> []
-	"b@0.0.2" -> ["a@0.0.2", "c@0.1.0"]
+这部分内容需要在在程序向客户端传输响应之前完成。
 
-##### Vision 1
-第一期，我们采用更加简单的方案来实现目标。我们会将依赖的结果存储到 MySQL 数据库中。该数据库至少有如下的字段：
-
-| Package | Version | Dependencies             |
-| ------- | ------- | ------------------------ |
-| a       | 0.0.1   | 
-| b       | 0.0.2   | a@0.0.2,c@0.1.0,a@0.0.1  |
-
-其中 `Dependencies` 字段会包含所有模块的递归依赖，也就是说，服务器端程序不需要递归地查询模块的依赖。
-
-服务器端程序，需要将 `'a@0.0.1'` 和 `'b0.0.2'` 的依赖合并，并去除重复之后，赋值为 `modules`。 
-
-
-
-##### Possible future
-neocortex 服务器会以 `JSON` 格式返回响应，包含如下结构：
-
-	{
-		"request_modules": {
-			"a": "0.0.1",
-			"b": "0.0.2"
-		},
-		
-		"modules": ["a@0.0.1", "a@0.0.2", "b@0.0.2", "c@0.1.0"],
-		
-		"combos": [
-			["a@0.0.1", "a@0.0.2", "b@0.0.2"],
-			["c@0.1.0"]
-		]
-	}
-	
-将 `JSON` 赋值为 `modules`。
-
-##### 说明
-具体的实现方式，可能会有所不同，但思路不变。
-
-#### 2. 输出响应	
+#### 3. 输出响应	
 
 ##### 页面准备
 
@@ -155,14 +107,11 @@ neocortex 服务器会以 `JSON` 格式返回响应，包含如下结构：
 
 ##### 模块资源文件
 
-遍历数组 `modules.combos` 中的项，每个项也是一个数组，
-
-- 若数组长度为 1，则应用 `url_pattern` 转换为模块 JavaScript 的绝对地址。
-- 若数组长度大于 1，则应用 `combo_url_pattern` 规则
-
-由此生成一个新的数组 `module_combo_urls`
+在 "程序逻辑.2" 章节中，生成的 `module_combo_urls` 输出到页面响应中。
 
 若为 IE 浏览器，并且 IE < 10，则在 <bottom_src> 页面中输出:
+
+（这里的代码，使用 freemarker 的语法来做示例，以便于理解。）
 
 	<script>
 	[<#list module_combo_urls as url>'${url}'</#list><#if url_has_next>, </#if>].forEach(f	unction(url){
@@ -174,8 +123,6 @@ neocortex 服务器会以 `JSON` 格式返回响应，包含如下结构：
     	h.insertBefore(n, h.firstChild);
 	});
 	</script>
-	
-转换后的代码。
 	
 若为其他浏览器，则在 <bottom_src> 页面中输出:
 
