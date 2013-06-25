@@ -18,3 +18,12 @@ PackageAffected varchar(50) not null,
 VersionAffected varchar(20) not null,
 primary key (Id)
 );
+
+
+CREATE TABLE CM_cortexCombo
+(
+Package varchar(50) not null,
+Version varchar(20) not null,
+ComboId int not null,
+primary key(Package, Version)
+);
