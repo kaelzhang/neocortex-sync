@@ -1,10 +1,10 @@
 -- create CM_cortexDependencies
 CREATE TABLE CM_cortexDependencies
 (
-Package varchar(50) not null,
+Name varchar(50) not null,
 Version varchar(20) not null,
 Dependencies text,
-primary key (Package,Version)
+primary key (Name,Version)
 );
 
 
@@ -12,9 +12,9 @@ primary key (Package,Version)
 CREATE TABLE CM_cortexPendingDependencies
 (
 Id int NOT NULL AUTO_INCREMENT,
-Package varchar(50) not null, -- 
+Name varchar(50) not null, -- 
 Version varchar(20) not null,
-PackageAffected varchar(50) not null,
+NameAffected varchar(50) not null,
 VersionAffected varchar(20) not null,
 primary key (Id)
 );
@@ -22,8 +22,8 @@ primary key (Id)
 
 CREATE TABLE CM_cortexCombo
 (
-Package varchar(50) not null,
+Name varchar(50) not null,
 Version varchar(20) not null,
 ComboId int not null,
-primary key(Package, Version)
+primary key(Name, Version)
 );
