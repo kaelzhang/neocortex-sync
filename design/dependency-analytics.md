@@ -8,7 +8,7 @@
 
 为了让之后的描述不至于混乱，
 
-##### Package
+##### Name
 `String` 指的是包（或模块）的名字，比如 `"a"`.
 
 ##### Version
@@ -37,7 +37,7 @@
 
 数据库表 CM_cortexDependencies，其中包含如下字段：
 
-| Package | Version | Dependencies                    |
+| Name    | Version | Dependencies                    |
 | ------- | ------- | ------------------------------- |
 | a       | 0.0.1   | c@0.0.1,e0.2.1                  |
 | b       | 0.0.2   | d@0.0.2,d@0.1.0,e@0.2.1,f@0.0.1 |
@@ -52,7 +52,7 @@
 
 我们有数据库表 CM_cortexCombos，其中包含如下字段：
 
-| Package | ComboId |
+| Name    | ComboId |
 | ------- | ------- |
 | a       | 1       | 
 | b       | 1       |
