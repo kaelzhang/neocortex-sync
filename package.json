@@ -2,7 +2,7 @@
   "name": "neocortex",
   "version": "0.1.2",
   "description": "A provider for dependency analytics and combo strategy",
-  "main": "lib/neocortex",
+  "main": "index.js",
   "bin": {
     "neocortex": "bin/neocortex-cli.js"
   },
