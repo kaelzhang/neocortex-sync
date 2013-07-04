@@ -1,10 +1,11 @@
 -- create CM_cortexDependencies
 CREATE TABLE CM_cortexDependencies
 (
+Id int NOT NULL AUTO_INCREMENT,
 Name varchar(50) not null,
 Version varchar(20) not null,
 Dependencies text,
-primary key (Name,Version)
+primary key (Id)
 );
 
 

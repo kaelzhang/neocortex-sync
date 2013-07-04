@@ -11,15 +11,16 @@
 
 <body>
 
-Test case:<br/>
+Demo:<br/>
 
-<a target="_blank" href="/action/dependencies?module=a@0.0.1">action: get deps</a> <br/>
-<a target="_blank" href="/action/save-dependencies?module=a@0.0.1">action: save deps</a> <br/>
-<a target="_blank" href="/action/make-up?module=b@0.0.2">action: make up</a> <br/>
+<a target="_blank" href="/get/dependencies?module=a@0.0.1">get dependencies: /get/dependencies?module=a@0.0.1</a> <br/>
+<a target="_blank" href="/save/dependencies?module=a@0.0.1">save dependencies of a module into mysql: /save/dependencies?module=a@0.0.1</a> <br/>
+<a target="_blank" href="/save/makeup?module=b@0.0.2">make up: /save/makeup?module=b@0.0.2</a> <br/>
 
-<a target="_blank" href="/action/make-up">action: make up, error</a> <br/>
+<a target="_blank" href="/save/makeup">make up, error(no module): /save/makeup</a> <br/>
 
-<a target="_blank" href="/action/combo">action: combo</a> <br/>
+<a target="_blank" href="/save/combo?modules=a,b,c~d,e,f">save combo: /save/combo?modules=a,b,c~d,e,f</a> <br/>
+<a target="_blank" href="/get/combo">get all combos: /get/combo</a> <br/>
 
 <script>
 
