@@ -2,29 +2,31 @@
 CREATE TABLE CM_cortexDependencies
 (
 Id int NOT NULL AUTO_INCREMENT,
-Name varchar(50) not null,
-Version varchar(20) not null,
+Name varchar(50) NOT NULL,
+Version varchar(20) NOT NULL,
 Dependencies text,
-primary key (Id)
+PRIMARY KEY (Id)
 );
+
+CREATE INDEX Package ON CM_cortexDependencies(Name, Version); 
 
 
 -- create CM_cortexPendingDependencies
 CREATE TABLE CM_cortexPendingDependencies
 (
 Id int NOT NULL AUTO_INCREMENT,
-Name varchar(50) not null, -- 
-Version varchar(20) not null,
-NameAffected varchar(50) not null,
-VersionAffected varchar(20) not null,
-primary key (Id)
+Name varchar(50) NOT NULL, -- 
+Version varchar(20) NOT NULL,
+NameAffected varchar(50) NOT NULL,
+VersionAffected varchar(20) NOT NULL,
+PRIMARY KEY (Id)
 );
 
 
 CREATE TABLE CM_cortexCombo
 (
-Name varchar(50) not null,
-Version varchar(20) not null,
-ComboId int not null,
-primary key(Name, Version)
+Name varchar(50) NOT NULL,
+Version varchar(20) NOT NULL,
+ComboId int NOT NULL,
+PRIMARY KEY (Name, Version)
 );
