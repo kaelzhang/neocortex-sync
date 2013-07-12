@@ -24,7 +24,7 @@ data-server="http://i{n}.dpfile.com"></script>
 
 前端模块发布的根目录
 
-	mod
+	/mod
 
 ### is_to_compress
 
@@ -44,11 +44,11 @@ data-server="http://i{n}.dpfile.com"></script>
 
 如果 `is_to_compress` 为 `true`
 
-	/{publish_dir}/{name}/{version}/{name}.min.js
+	{publish_dir}/{name}/{version}/{name}.min.js
 	
 否则
 
-	/{publish_dir}/{name}/{version}/{name}.js
+	{publish_dir}/{name}/{version}/{name}.js
 	
 	
 ### escaped_pathname
