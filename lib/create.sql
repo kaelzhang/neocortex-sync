@@ -22,11 +22,17 @@ VersionAffected varchar(20) NOT NULL,
 PRIMARY KEY (Id)
 );
 
+CREATE INDEX Package ON CM_cortexPendingDependencies(Name, Version); 
+
 
 CREATE TABLE CM_cortexCombo
 (
+Id int NOT NULL AUTO_INCREMENT,
 Name varchar(50) NOT NULL,
 Version varchar(20) NOT NULL,
 ComboId int NOT NULL,
-PRIMARY KEY (Name, Version)
+PRIMARY KEY (Id)
 );
+
+CREATE INDEX Package ON CM_cortexCombo(Name, Version); 
+
