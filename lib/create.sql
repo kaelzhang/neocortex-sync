@@ -8,7 +8,7 @@ Dependencies text,
 PRIMARY KEY (Id)
 );
 
-CREATE INDEX Package ON CM_cortexDependencies(Name, Version); 
+CREATE UNIQUE INDEX CM_cortexDependencies_module ON CM_cortexDependencies(Name, Version); 
 
 
 -- create CM_cortexPendingDependencies
@@ -22,7 +22,7 @@ VersionAffected varchar(20) NOT NULL,
 PRIMARY KEY (Id)
 );
 
-CREATE INDEX Package ON CM_cortexPendingDependencies(Name, Version); 
+CREATE UNIQUE INDEX CM_cortexPendingDependencies_module ON CM_cortexPendingDependencies(Name, Version); 
 
 
 CREATE TABLE CM_cortexCombo
@@ -34,5 +34,5 @@ ComboId varchar(32) NOT NULL,
 PRIMARY KEY (Id)
 );
 
-CREATE INDEX Package ON CM_cortexCombo(Name, Version); 
+CREATE UNIQUE INDEX CM_cortexCombo_module ON CM_cortexCombo(Name, Version);
 
