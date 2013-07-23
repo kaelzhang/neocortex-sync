@@ -30,7 +30,7 @@ CREATE TABLE CM_cortexCombo
 Id int NOT NULL AUTO_INCREMENT,
 Name varchar(50) NOT NULL,
 Version varchar(20) NOT NULL,
-ComboId int NOT NULL,
+ComboId varchar(32) NOT NULL,
 PRIMARY KEY (Id)
 );
 
